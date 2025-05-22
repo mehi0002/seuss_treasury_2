@@ -1,0 +1,196 @@
+:root{
+    --red: #E2260D;
+    --text: #000000;
+}
+
+/********* Site Header ***********/
+#site-header{
+    background-color: var(--red);
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Fonts */
+#site-header h1 {
+    color: white;
+    margin: 0;
+    align-content: center;
+}
+
+/*********** Navigation ***********/
+#site-header nav .nav-link {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+/* Hover/active links */
+#site-header nav .nav-link:hover,
+#site-header nav .active {
+    background-color: white;
+    color: var(--red);
+}
+
+/************ LAYOUTS ***************/
+/* Toolbar */
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+/*** Gallery Display ***/
+.grid{
+    display: grid;
+    gap: 1rem;
+
+    padding: 1rem;
+    margin: 1rem 0 0 0;
+}
+
+.gallery li{
+    list-style: none;
+}
+
+.gallery li img{
+    height: 100%;
+}
+
+/* Bookshelf */
+.bookshelf {
+    grid-template-columns: 1fr 1fr;
+}
+
+/****** Book Info *******/
+.book{
+    grid-template-areas:
+        'head'
+        'aside'
+        'main';
+
+    grid-template-rows: auto 1fr 1fr;
+
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Book cover */
+.book img{
+    grid-area: aside;
+    min-width: 10rem;
+}
+
+/* Title */
+.book h2{
+    grid-area: head;
+    margin: 0;
+}
+
+/* Synopsis */
+.book p{
+    grid-area: main;
+}
+
+/********* Quotes ***********/
+.quotes {
+    grid-template-columns: 1fr;
+}
+
+/* Layout */
+.quotes .quote-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+    padding: 1rem;
+    
+    border: 2px solid red;
+    border-radius: 0.5rem;
+}
+
+/* Link */
+.quotes .quote-link{
+    text-decoration: none;
+    color: var(--text);
+}
+
+/* Link hover */
+.quotes .quote-link:hover{
+    position:relative;
+    right: 0.1rem;
+    bottom: 0.1rem;
+    text-decoration: none;
+}
+
+.quotes blockquote{
+    border-inline: none;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+}
+
+.quotes cite{
+    padding: 0;
+    margin: 1rem 0 0 0;
+    text-align: right;
+    font-size: 0.75em;
+}
+
+/************ Responsive Resizing *******************/
+@media only screen and (min-width: 576px){
+
+    #site-header{
+        flex-direction: row;
+    }
+
+    .bookshelf {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .book{
+        grid-template-areas:
+            'aside head head'
+            'aside main main';
+    
+        grid-template-rows: auto 1fr;
+    }
+    
+    .quotes {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 768px){
+
+    .bookshelf {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .quotes {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+}
+
+@media only screen and (min-width: 1024px){
+
+    .bookshelf {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .quotes {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 1280px){
+
+    .bookshelf {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+}
